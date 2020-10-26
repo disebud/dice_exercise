@@ -9,12 +9,7 @@
     android:layout_gravity="center_vertical"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="20dp"
-        >
+
 
     <ImageView
         android:id="@+id/dice_image"
@@ -32,7 +27,6 @@
             app:srcCompat="@drawable/empty_dice"
             tools:src="@drawable/empty_dice" />
 
-    </LinearLayout>
 
 
     <Button
