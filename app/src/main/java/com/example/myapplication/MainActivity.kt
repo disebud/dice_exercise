@@ -9,12 +9,20 @@ import android.widget.Toast
 import com.example.myapplication.R.string.hello
 
 class MainActivity : AppCompatActivity() {
+
+    private  lateinit var  diceImage : ImageView
+    private  lateinit var  diceImage2 : ImageView
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        diceImage= findViewById(R.id.dice_image)
+        diceImage2 = findViewById(R.id.dice_image2)
+
         val rollButton: Button = findViewById(R.id.roll_buton)
-        val countUpButton: Button = findViewById(R.id.count_up_buton)
+//        val countUpButton: Button = findViewById(R.id.count_up_buton)
 
 
         rollButton.setOnClickListener{rollDice()}
@@ -24,8 +32,13 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun rollDice(){
+        diceImage.setImageResource(getRandomDiceImage())
+        diceImage2.setImageResource(getRandomDiceImage())
+    }
+
+    private fun getRandomDiceImage() : Int {
+
         val randomInt = (1..6).random()
-        val diceImage: ImageView = findViewById(R.id.dice_image)
 
         val drawableResource = when (randomInt) {
             1 -> R.drawable.dice_1
@@ -36,10 +49,8 @@ class MainActivity : AppCompatActivity() {
             else -> R.drawable.dice_6
         }
 
-        diceImage.setImageResource(drawableResource)
+        return drawableResource
 
-        Toast.makeText(this,"Button Clicked, Dice Number : $randomInt",
-        Toast.LENGTH_SHORT).show()
     }
 
 //    private fun countUp(){
